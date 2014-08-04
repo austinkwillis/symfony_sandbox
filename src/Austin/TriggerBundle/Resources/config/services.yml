@@ -1,0 +1,7 @@
+parameters:
+#    austin_trigger.example.class: Austin\TriggerBundle\Example
+
+services:
+#    austin_trigger.example:
+#        class: %austin_trigger.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

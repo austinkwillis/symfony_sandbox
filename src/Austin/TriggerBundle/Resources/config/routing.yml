@@ -1,0 +1,3 @@
+austin_trigger_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AustinTriggerBundle:Default:index }
