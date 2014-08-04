@@ -60,11 +60,6 @@ doctrine:
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
         
-        services:
-            my.listener:
-             class: Austin\TriggerBundle\EventListener\SingleTriggers
-             tags:
-                 - { name: doctrine.event_listener, event: postPersist }
         # category.listener:
             # class: Austin\TriggerBundle\EventListener\BucketTriggers
             # tags:
