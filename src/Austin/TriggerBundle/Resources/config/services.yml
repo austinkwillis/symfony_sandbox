@@ -1,7 +1,27 @@
 parameters:
 #    austin_trigger.example.class: Austin\TriggerBundle\Example
+        #Manager
+        class: austin\TriggerBundle\Manager\ThingManager
+        #Listener
+        class: austin\TriggerBundle\Listener\ThingListener
+        #ListenerResolver
+        class: austin\TriggerBundle\ListenerResolver\ListenerResolver
 
 services:
-#    austin_trigger.example:
-#        class: %austin_trigger.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+        #Manager
+        service:
+            id:       Austin\TriggerBundle\ThingManager
+            class:    Austin\TriggerBundle\ThingManager
+
+        #Listener
+
+        service: 
+            id:    ThingListener\preUpdate
+            class:    ThingListener
+
+
+        #Listener Resolver
+        service: 
+            id: 	  ListenerResolver
+            class:    ListenerResolver
+

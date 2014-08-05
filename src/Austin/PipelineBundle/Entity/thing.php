@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Austin\PipelineBundle\Entity\thingRepository")
+ * @ORM\EntityListeners({"Austin\TriggerBundle\Listener\ThingListener"})
  */
 class thing
 {
@@ -120,5 +121,14 @@ class thing
     public function getCount()
     {
         return $this->count;
+    }
+	
+	/**
+    * @ORM\PostUpdate
+    */
+    public function postUpdate(LifecycleEventArgs $event)
+    {
+        $entity = $event->getEntity();
+        $em = $event->getEntityManager();
     }
 }

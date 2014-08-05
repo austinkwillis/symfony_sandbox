@@ -1,0 +1,13 @@
+<?php
+
+namespace Austin\TriggerBundle\Manager;
+
+use Austin\TriggerBundle\Entity\thing;
+
+class ThingManager
+{
+    public function sendMail($mailType)
+    {
+        
+    }
+}
