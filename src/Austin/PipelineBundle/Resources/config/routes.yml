@@ -1,4 +1,8 @@
-austin_challenge_homepage:
-    path:     /tracker/{name}/{count}/{direction}
-    defaults: { _controller: AustinChallengeBundle:Default:create }
+defaults:
+    path:      /tracker/{name}/{countChange}/{direction}
+    defaults: { _controller: AustinPipelineBundle:Default:tracker}
+    
+visuals:
+    path:     /visuals/
+    defaults: { _controller: AustinPipelineBundle:Visuals:index}
  

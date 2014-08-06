@@ -14,7 +14,6 @@ services:
             class:    Austin\TriggerBundle\ThingManager
 
         #Listener
-
         service: 
             id:    ThingListener\preUpdate
             class:    ThingListener
@@ -22,6 +21,19 @@ services:
 
         #Listener Resolver
         service: 
-            id: 	  ListenerResolver
+            id:       ListenerResolver
             class:    ListenerResolver
+            
+
+        service:
+            id: kernel.listener.RequestListener
+            class: Austin\TriggerBundle\Listeners\RequestListener
+            tags:
+                - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+            
+        service:
+        kernel.listener.ExceptionListener:
+            class: Austin\TriggerBundle\Listeners\ExceptionListener
+            tags:
+                - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
 

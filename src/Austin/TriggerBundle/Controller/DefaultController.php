@@ -7,9 +7,9 @@ use Symfony\Austin\TriggerBundle;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-		return $this->render('AustinChallengeBundle:Default:index.html.twig', array('name' => $name));
+		return $this->render('AustinTriggerBundle:Default:index.html.twig');
     }
 	
 	public function mailAction()

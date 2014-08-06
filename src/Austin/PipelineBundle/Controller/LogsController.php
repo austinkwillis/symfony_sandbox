@@ -21,18 +21,10 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-		 $allThings = $this->getDoctrine()
-			 ->getRepository('Austin\PipelineBundle\Entity\thing')
-			 ->findAll();
-	
 		return $this->render(
-			 'AustinPipelineBundle:Default:index.html.twig', array('allThings'=>$allThings));
-            
-
-        //return $this->render('AustinPipelineBundle:Default:visuals.html.twig');
+			'AustinPipelineBundle:Default:index.html.twig'
+			);
     }
-    
-    
 	
 	/**
      * @Route("/tracker/{name}/{countChange}/{direction}")

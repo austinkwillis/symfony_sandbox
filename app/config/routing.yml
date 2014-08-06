@@ -1,9 +1,12 @@
 austin_trigger:
     resource: "@AustinTriggerBundle/Resources/config/routing.yml"
     prefix:   /
-
+    
 austin_pipeline:
-    resource: "@AustinPipelineBundle/Controller/"
-    type:     annotation
+    resource: "@AustinPipelineBundle/Resources/config/routes.yml"
     prefix:   /
+    
+_dashboard:
+    path:      /
+    defaults:  { _controller: AustinPipelineBundle:Default:index }
 

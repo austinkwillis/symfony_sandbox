@@ -11,25 +11,28 @@ class MailHelper
 
     public function __construct()
     {
-        $transport = Swift_SmtpTransport::newInstance('', 25)
-		->setUsername('')
-		->setPassword('');
+
+    }
+
+    public function sendEmail($from, $to, $body, $subject = '')
+    {
+	
+	$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'sslv3')
+		->setUsername('aukwill@gmail.com')
+		->setPassword('kitkat06');
 
 
 
 	// Create the Mailer using your created Transport
 	$mailer = Swift_Mailer::newInstance($transport);
-    }
-
-    public function sendEmail($from, $to, $body, $subject = '')
-    {
+	
         $message = Swift_Message::newInstance()
             ->setSubject($subject)
             ->setFrom($from)
             ->setTo($to)
             ->setBody($body);
 
-        $this->mailer->send($message);
+        $mailer->send($message);
     }
 }
 ?>

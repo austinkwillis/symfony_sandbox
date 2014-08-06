@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="UTF-8" />
         <title>Austin_Challenge</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        <link href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css" rel="stylesheet" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
     </head>
     <body>
 	<h1>{% block title %}Welcome!{% endblock %}</h1>
@@ -22,15 +26,23 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="/Log">Log</a></li>
-            <li><a href="/Visuals">Visualization</a></li>
+            <li><a href="./Log">Log</a></li>
+            <li><a href="./Visuals">Visualization</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
         <div id="content">
-            {% block body %}{% endblock %}
+            {% block body %}
+              
+            {% endblock %}
         </div>
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% block javascripts %}
+<script type="text/javascript" class="init">
+    $(document).ready(function() {
+        $('#things').dataTable();
+    } );
+</script>
+ <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ <script src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+{% endblock %}
