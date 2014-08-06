@@ -20,7 +20,7 @@ class MailHelper
 	
 	$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'sslv3')
 		->setUsername('aukwill@gmail.com')
-		->setPassword('kitkat06');
+		->setPassword('');
 
         $message = Swift_Message::newInstance()
             ->setSubject($subject)
