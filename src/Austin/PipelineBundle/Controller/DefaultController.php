@@ -77,25 +77,29 @@ class DefaultController extends Controller
 			$category->setName($name);
 			$em->persist($category);
 		}
-	
+        $output = "";
 		if($isAdding == 'add') { //add else remove
+            $output = " added to category: ";
 		    if(!$thing){
+                
 				$thing = new thing();
 				$thing->setName($thingName);
-				$thing->setCategory($name);
 				$thing->setCount(0);
 				$em->persist($thing);
 			}
+            $thing->setCategory($name);
+            
 		}
 		else{
-			if(thing){
-				$thing->setCategory($name);
+            $output = " removed from category: ";
+			if($thing){
+				$thing->setCategory("none");
 			}
 		}
 	//Save
     
     $em->flush();
 
-    return new Response( $thing->getName().' now has a count of '.$thing->getCount());
+    return new Response( $thingName.$output.$name);
 	}
 }

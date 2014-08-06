@@ -1,5 +1,6 @@
 <?php
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 namespace Austin\TriggerBundle\Util;
 use Swift_SmtpTransport;
 use Swift_Mailer;
@@ -21,18 +22,25 @@ class MailHelper
 		->setUsername('aukwill@gmail.com')
 		->setPassword('kitkat06');
 
-
-
-	// Create the Mailer using your created Transport
-	$mailer = Swift_Mailer::newInstance($transport);
-	
         $message = Swift_Message::newInstance()
             ->setSubject($subject)
             ->setFrom($from)
             ->setTo($to)
             ->setBody($body);
+            if (!$this->get('mailer')->send($message, $failures)){
+                throw new NotFoundHttpException($failures);
+            }
 
-        $mailer->send($message);
+	// // Create the Mailer using your created Transport
+	// $mailer = Swift_Mailer::newInstance($transport);
+	
+        // $message = Swift_Message::newInstance()
+            // ->setSubject($subject)
+            // ->setFrom($from)
+            // ->setTo($to)
+            // ->setBody($body);
+
+        // $mailer->send($message);
     }
 }
 ?>

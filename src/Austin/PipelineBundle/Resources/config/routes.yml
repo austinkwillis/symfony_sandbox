@@ -2,6 +2,10 @@ defaults:
     path:      /tracker/{name}/{countChange}/{direction}
     defaults: { _controller: AustinPipelineBundle:Default:tracker}
     
+category:
+    path:      /category/{name}/{isAdding}/{thingName}
+    defaults: { _controller: AustinPipelineBundle:Default:category}
+    
 visuals:
     path:     /visuals/
     defaults: { _controller: AustinPipelineBundle:Visuals:index}
